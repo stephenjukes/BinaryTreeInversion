@@ -50,10 +50,11 @@ namespace BinaryTreeInversion
         {
             var indentation = new string('\t', level);
 
-            return string.Join('\n', nodes.Select(n => 
-                indentation + n.Value + "\n" + (n.Children.Any() 
-                    ? Display(n.Children, level + 1) 
-                    : "")));
+            return string.Join('\n', 
+                nodes.Select(n => 
+                    indentation + n.Value + "\n" + (n.Children.Any() 
+                        ? Display(n.Children, level + 1) 
+                        : "")));
         }
     }
 
