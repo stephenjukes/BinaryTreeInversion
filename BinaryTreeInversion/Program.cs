@@ -35,11 +35,9 @@ namespace BinaryTreeInversion
 
         private static IEnumerable<Node> InvertBinaryTree(Node node, Node parent = null, Node grandparent = null)
         {
-            if (parent != null) parent = new Node
-                {
-                    Value = parent.Value,
-                    Children = grandparent != null ? new List<Node>() { grandparent } : new List<Node>()
-                };
+            if (parent != null) parent.Children = grandparent != null 
+                ? new List<Node>() { grandparent } 
+                : new List<Node>();
 
             return node.Children.Any()
                 ? node.Children.SelectMany(child => InvertBinaryTree(child, node, parent))
@@ -73,5 +71,4 @@ namespace BinaryTreeInversion
         public string Value { get; set; }
         public List<Node> Children { get; set; }
     }
-
 }
